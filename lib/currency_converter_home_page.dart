@@ -50,7 +50,7 @@ class _CurrencyConverterMaterialPageState
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-              'BDT ${ result!=0 ? result.toStringAsFixed(2)}',
+              'BDT ${ result!=0 ? result.toStringAsFixed(2): result.toStringAsFixed(0)}',
                 style: TextStyle(
                   fontSize: 45,
                   fontWeight: FontWeight.bold,
