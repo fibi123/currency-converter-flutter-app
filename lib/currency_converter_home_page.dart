@@ -15,6 +15,11 @@ class _CurrencyConverterMaterialPageState
   double result = 0;
   final TextEditingController textEditingController = TextEditingController();
 
+  void convert(){
+      result  = double.parse(textEditingController.text)*122.35;
+      setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     print('rebuilt');
@@ -39,20 +44,20 @@ class _CurrencyConverterMaterialPageState
         centerTitle: true,
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-            'BDT ${result.toString()}',
-              style: TextStyle(
-                fontSize: 45,
-                fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255,255,255,255),
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+              'BDT ${ result!=0 ? result.toStringAsFixed(2)}',
+                style: TextStyle(
+                  fontSize: 45,
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255,255,255,255),
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: TextField(
+              TextField(
                 controller: textEditingController,
                 style: const TextStyle(
                   color: Colors.black,
@@ -74,10 +79,9 @@ class _CurrencyConverterMaterialPageState
                 ),
 
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: ElevatedButton(
+              Container(height: 10),
+
+              ElevatedButton(
                 onPressed: () {
                   setState(() {
                     result  = double.parse(textEditingController.text)*122.35;
@@ -95,8 +99,8 @@ class _CurrencyConverterMaterialPageState
                 ),
                 child: const Text('Convert'),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
