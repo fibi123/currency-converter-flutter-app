@@ -30,18 +30,13 @@ class _CurrencyConverterCupertinoState
       borderRadius: BorderRadius.circular(5),
     );
 
-    return Scaffold(
-      backgroundColor: Colors.blueGrey,
-      appBar: AppBar(
-        backgroundColor: Colors.blueGrey,
-        elevation: 0,
-        title: const Text('Currency Converter',
-          style: TextStyle(
-              color: Colors.white),
+    return CupertinosPageScaffold(
+      backgroundColor: CupertinoColors.systemGrey3,
+      navigationBar: const CupertinoNavigationBar(
+        backgroundColor: CupertinoColors.systemGrey3,
+        middle: Text('Currency Converter',
         ),
-        centerTitle: true,
-      ),
-      body: Center(
+      child: Center(
         child: Padding(
           padding: const EdgeInsets.all(10),
           child: Column(
