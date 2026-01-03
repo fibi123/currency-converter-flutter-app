@@ -47,7 +47,7 @@ class _CurrencyConverterCupertinoState
                 style: TextStyle(
                   fontSize: 45,
                   fontWeight: FontWeight.bold,
-                  color: Color.fromARGB(255,255,255,255),
+                  color: Color.fromARGB(245,255,255,255),
                 ),
               ),
               TextField(
