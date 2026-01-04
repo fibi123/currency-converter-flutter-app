@@ -32,9 +32,9 @@ class _CurrencyConverterCupertinoState
 
     return CupertinosPageScaffold(
       backgroundColor: CupertinoColors.systemGrey3,
-      navigationBar: const CupertinoNavigationBar(
+      navigationBar: CupertinoNavigationBar(
         backgroundColor: CupertinoColors.systemGrey3,
-        middle: Text('Currency Converter',
+        middle: const Text('Currency Converter',
         ),
       child: Center(
         child: Padding(
@@ -43,22 +43,26 @@ class _CurrencyConverterCupertinoState
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'BDT ${ result!=0 ? result.toStringAsFixed(2): result.toStringAsFixed(0)}',
-                style: TextStyle(
+                'BDT ${result!=0 ? result.toStringAsFixed(3): result.toStringAsFixed(0)}',
+                style: const TextStyle(
                   fontSize: 45,
                   fontWeight: FontWeight.bold,
                   color: Color.fromARGB(255,255,255,255),
                 ),
               ),
-              TextField(
+              CupertinoTextField(
                 controller: textEditingController,
                 style: const TextStyle(
-                  color: Colors.black,
+                  color: CupertinoColors.black,
                 ),
-                decoration: InputDecoration(
+                decoration: BoxDecoration(
+                  border: Border.all(),
+
+                ),
+                InputDecoration(
                   hintText: 'Please enter the amount in USD',
                   hintStyle: const TextStyle(
-                    color: Colors.black,
+                    color: CupertinoColors.black,
                   ),
                   prefixIcon: const Icon(Icons.monetization_on),
                   prefixIconColor: Colors.black,
@@ -72,7 +76,7 @@ class _CurrencyConverterCupertinoState
                 ),
 
               ),
-              Container(height: 10),
+              const Container(height: 10),
 
               ElevatedButton(
                 onPressed: () {
@@ -86,7 +90,7 @@ class _CurrencyConverterCupertinoState
                   minimumSize: const Size(double.infinity, 50),
                   elevation: 10.0,
                   shape:
-                  RoundedRectangleBorder(
+                  const RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(5),
                   ),
                 ),
