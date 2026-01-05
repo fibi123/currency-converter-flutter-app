@@ -30,7 +30,7 @@ class _CurrencyConverterCupertinoState
       borderRadius: BorderRadius.circular(5),
     );
 
-    return CupertinosPageScaffold(
+    return CupertinoPageScaffold(
       backgroundColor: CupertinoColors.systemGrey3,
       navigationBar: CupertinoNavigationBar(
         backgroundColor: CupertinoColors.systemGrey3,
@@ -56,49 +56,26 @@ class _CurrencyConverterCupertinoState
                   color: CupertinoColors.black,
                 ),
                 decoration: BoxDecoration(
+                  color: CupertinoColors.white,
                   border: Border.all(),
-
+                  borderRadius: BorderRadius.circular(5)
                 ),
-                InputDecoration(
-                  hintText: 'Please enter the amount in USD',
-                  hintStyle: const TextStyle(
-                    color: CupertinoColors.black,
-                  ),
-                  prefixIcon: const Icon(Icons.monetization_on),
-                  prefixIconColor: Colors.black,
-                  filled: true,
-                  fillColor: Colors.white,
-                  focusedBorder: border,
-                  enabledBorder: border,
-                ),
-                keyboardType: const TextInputType.numberWithOptions(
-                  decimal: true,
-                ),
-
+               placeholder: 'Please enter the amount in USD',
+               prefix: const Icon(CupertinoIcons.money_dollar),
+               keyboardType: const TextInputType.numberWithOptions(
+                 decimal: true,
+               ),
               ),
-              const Container(height: 10),
-
-              ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    result  = double.parse(textEditingController.text)*122.35;
-                  });
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.black,
-                  foregroundColor: Colors.white,
-                  minimumSize: const Size(double.infinity, 50),
-                  elevation: 10.0,
-                  shape:
-                  const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                ),
+              const SizedBox(height: 10),
+              CupertinoButton(
+                onPressed: convert,
+                color: CupertinoColors.black,
                 child: const Text('Convert'),
               ),
             ],
           ),
         ),
       ),
-    );
-  }
+    )
+  );
+
