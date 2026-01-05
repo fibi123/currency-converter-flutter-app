@@ -13,29 +13,19 @@ class _CurrencyConverterCupertinoState
   double result = 0;
   final TextEditingController textEditingController = TextEditingController();
 
-  void convert(){
-    result  = double.parse(textEditingController.text)*122.35;
+  void convert() {
+    result = double.parse(textEditingController.text) * 122.35;
     setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    print('rebuilt');
-    final border = OutlineInputBorder(
-      //Color(0xAARRGGBB)
-      borderSide: const BorderSide(
-        width: 2.0,
-        style: BorderStyle.solid,
-      ),
-      borderRadius: BorderRadius.circular(5),
-    );
-
     return CupertinoPageScaffold(
       backgroundColor: CupertinoColors.systemGrey3,
       navigationBar: CupertinoNavigationBar(
         backgroundColor: CupertinoColors.systemGrey3,
-        middle: const Text('Currency Converter',
-        ),
+        middle: const Text('Currency Converter'),
+      ),
       child: Center(
         child: Padding(
           padding: const EdgeInsets.all(10),
@@ -43,11 +33,12 @@ class _CurrencyConverterCupertinoState
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'BDT ${result!=0 ? result.toStringAsFixed(3): result.toStringAsFixed(0)}',
+                'BDT ${result != 0 ? result.toStringAsFixed(3) : result
+                    .toStringAsFixed(0)}',
                 style: const TextStyle(
                   fontSize: 45,
                   fontWeight: FontWeight.bold,
-                  color: Color.fromARGB(255,255,255,255),
+                  color: Color.fromARGB(255, 255, 255, 255),
                 ),
               ),
               CupertinoTextField(
@@ -56,15 +47,15 @@ class _CurrencyConverterCupertinoState
                   color: CupertinoColors.black,
                 ),
                 decoration: BoxDecoration(
-                  color: CupertinoColors.white,
-                  border: Border.all(),
-                  borderRadius: BorderRadius.circular(5)
+                    color: CupertinoColors.white,
+                    border: Border.all(),
+                    borderRadius: BorderRadius.circular(5)
                 ),
-               placeholder: 'Please enter the amount in USD',
-               prefix: const Icon(CupertinoIcons.money_dollar),
-               keyboardType: const TextInputType.numberWithOptions(
-                 decimal: true,
-               ),
+                placeholder: 'Please enter the amount in USD',
+                prefix: const Icon(CupertinoIcons.money_dollar),
+                keyboardType: const TextInputType.numberWithOptions(
+                  decimal: true,
+                ),
               ),
               const SizedBox(height: 10),
               CupertinoButton(
@@ -76,6 +67,6 @@ class _CurrencyConverterCupertinoState
           ),
         ),
       ),
-    )
-  );
-
+    );
+  }
+}
